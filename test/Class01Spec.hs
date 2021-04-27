@@ -11,6 +11,7 @@ spec = do
       add1 [] `shouldBe` []
     it "add1 [1] returns [2]" $
       add1 [1] `shouldBe` [2]
+    -- 1から199までの連続した要素を持つ配列
     it "add1 [1..199] returns [2..200]" $
       add1 [1..199] `shouldBe` [2..200]
     it "add1 [-10..10] returns [-9..11]" $
@@ -21,6 +22,7 @@ spec = do
       double [] `shouldBe` []
     it "double [1] returns [2]" $
       double [1] `shouldBe` [2]
+    -- 1から20までの連続した要素を持つ配列をdoubleに渡すと、初項2 公比2 末項40の等比数列を要素に持つ配列が返る
     it "double [1..20] returns [2,4..40]" $
       double [1..20] `shouldBe` [2,4..40]
     it "double [1..20] returns [(-40),(-38)..8]" $
@@ -45,6 +47,7 @@ spec = do
       max' [1] `shouldBe` 1
     it "max [3,5,1] returns 5" $
       max' [3,5,1] `shouldBe` 5
+    -- 1から100までの連続した要素を持つ配列を作り順番をシャッフルした配列の最大値は100
     it "max (shuffle [1..100]) returns 100" $ do
       list <- sample' $ shuffle [1..100]
       max' (head list) `shouldBe` 100
