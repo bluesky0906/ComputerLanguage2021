@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e1a24f8dc68d6fd76bda8e66a58994ff4e0f96ec21c7542c01795c0e22a17737
+-- hash: 4c23b640e89cbad7a14bb51246f0eb41a2a0c3b5b124a4e74b3af1bdb7a3d344
 
 name:           ComputerLanguage2021
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Class01
       Lib
   other-modules:
       Paths_ComputerLanguage2021
@@ -36,27 +37,18 @@ library
       base >=4.7 && <5
   default-language: Haskell2010
 
-executable ComputerLanguage2021-exe
-  main-is: Main.hs
-  other-modules:
-      Paths_ComputerLanguage2021
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      ComputerLanguage2021
-    , base >=4.7 && <5
-  default-language: Haskell2010
-
 test-suite ComputerLanguage2021-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Class01Spec
       Paths_ComputerLanguage2021
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       ComputerLanguage2021
+    , QuickCheck
     , base >=4.7 && <5
+    , hspec
   default-language: Haskell2010

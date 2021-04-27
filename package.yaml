@@ -25,16 +25,16 @@ dependencies:
 library:
   source-dirs: src
 
-executables:
-  ComputerLanguage2021-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - ComputerLanguage2021
+# executables:
+#   class01:
+#     main:                class01.hs
+#     source-dirs:         app
+#     ghc-options:
+#     - -threaded
+#     - -rtsopts
+#     - -with-rtsopts=-N
+#     dependencies:
+#     - ComputerLanguage2021
 
 tests:
   ComputerLanguage2021-test:
@@ -46,3 +46,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - ComputerLanguage2021
+    - hspec 
+    - QuickCheck
