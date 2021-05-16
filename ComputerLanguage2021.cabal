@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 35acc49f33a14139ca073f3897bb4d95b6ae81398f8dd0bcdeabee31ce775f17
+-- hash: ca9b8845e781e9094d37ebe1848375232309e72f537d6d5afbb235f0dbabd3ea
 
 name:           ComputerLanguage2021
 version:        0.1.0.0
@@ -29,6 +29,7 @@ library
   exposed-modules:
       Class01
       Class02
+      Class03
       Lib
   other-modules:
       Paths_ComputerLanguage2021
@@ -44,6 +45,7 @@ test-suite ComputerLanguage2021-test
   other-modules:
       Class01Spec
       Class02Spec
+      Class03Spec
       Paths_ComputerLanguage2021
   hs-source-dirs:
       test
