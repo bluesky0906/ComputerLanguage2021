@@ -1,7 +1,13 @@
 -- {-# LANGUAGE DatatypeContexts #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
+{-
+ocamlのmoduleのような機能はないため、
+型クラスを使って、DataFが持つべき関数を指定
 
+TreeTをDataTのインスタンスにし、
+TはGADTs拡張を使い抽象化した型にしている
+-}
 module Class03 where
   -- KindSignaturesで種注釈をつけている
   class DataF (f :: * -> *) where
@@ -17,7 +23,8 @@ module Class03 where
   occur' k fix = case fix of
     Fix d -> occur (Class03.fmap (occur' k) d)
     Meta n -> n == k
-    
+
+  -- Tree module
   data TreeF a = Empty | Node (a, String, Int, a)
   instance DataF TreeF where
     fmap g tree = case tree of
