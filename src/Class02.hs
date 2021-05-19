@@ -38,8 +38,11 @@ fmap'を用いて再帰的に適用
 --- イメージ ---
 list = [1, 2]
 phi (fmap' ((foldList phi) [1, 2]))
-phi (fmap' (Cons (1, (foldList phi) [2])))
-phi (fmap' (Cons (1, Cons (2, (foldList phi) Empty))))
+phi (Cons (1, (foldList phi) [2])))
+phi (Cons (1, phi (fmap' (foldList phi) [2])))
+phi (Cons (1, phi Cons (2, (foldList phi) [])))
+phi (Cons (1, phi Cons (2, phi (fmap' (foldList phi) []))))
+phi (Cons (1, phi Cons (2, phi Empty))))
 -}
 foldList :: (ListF a -> a) -> ListT -> a
 foldList phi (Fix d) = phi (fmap' (foldList phi) d)
