@@ -31,7 +31,6 @@ module Class03 where
     Fix d -> draw (Class03.fmap draw' d)
     Meta n -> "{" ++ show n ++ "}"
 
-  -- fold' :: DataF f => (f T -> T) -> T -> T -> T
   -- fold' :: DataF f => (f a -> b) -> b -> T -> b
   -- fold' g k fix = case fix of
   --   Fix d -> g (Class03.fmap (fold' g k) d)
