@@ -31,10 +31,10 @@ module Class03 where
     Fix d -> draw (Class03.fmap draw' d)
     Meta n -> "{" ++ show n ++ "}"
 
-  -- fold' :: DataF f => (f a -> b) -> b -> T -> b
-  -- fold' g k fix = case fix of
-  --   Fix d -> g (Class03.fmap (fold' g k) d)
-  --   Meta n -> k
+  -- fold' :: DataF f => (f a -> a) -> (Int -> a) -> T -> a
+  -- fold' phi psi fix = case fix of
+  --   Fix d -> phi (Class03.fmap (fold' phi psi) d)
+  --   Meta n -> psi n
 
   -- Tree module
   data TreeF a = Empty | Node (a, String, Int, a)
