@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ca9b8845e781e9094d37ebe1848375232309e72f537d6d5afbb235f0dbabd3ea
+-- hash: 6153bb13ff692dc4ac06f0ee2f422f80bc22f826641a21f5fd221a74d749858d
 
 name:           ComputerLanguage2021
 version:        0.1.0.0
@@ -30,6 +30,7 @@ library
       Class01
       Class02
       Class03
+      Class04
       Lib
   other-modules:
       Paths_ComputerLanguage2021
@@ -46,6 +47,7 @@ test-suite ComputerLanguage2021-test
       Class01Spec
       Class02Spec
       Class03Spec
+      Class04Spec
       Paths_ComputerLanguage2021
   hs-source-dirs:
       test
