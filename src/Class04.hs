@@ -5,7 +5,11 @@ module Class04 where
 
   data SumT a b = Left a | Right b
 
-  data TypeF a = Unit () | Rec a | Sum (SumT (TypeF a) (TypeF a)) | Pair (TypeF a, TypeF a)
+  data TypeF a where
+    Unit :: () -> TypeF a
+    Rec :: a -> TypeF a
+    Sum :: SumT (TypeF a) (TypeF a) -> TypeF a
+    Pair :: (TypeF a, TypeF a) -> TypeF a
 
   fmap :: CodeT -> (a -> b) -> TypeF a -> TypeF b
   fmap code f d = case (code, d) of
@@ -33,7 +37,7 @@ module Class04 where
   suc :: FixT -> FixT
   suc n = Fix (Sum (Class04.Right (Pair (Unit (), Rec n))))
 
-  -- 自然数の例
+  ------------ 自然数の例 ------------
   one = suc zero
   two = suc one
   three = suc two
@@ -46,3 +50,30 @@ module Class04 where
   length :: FixT -> Int
   length = fold nat lengthF
 
+
+  ------------ 木 ------------
+  tree :: CodeT
+  tree = Plus (U, Times (I, I))
+
+  -- constructor-like functions
+  empty = Fix (Sum (Class04.Left (Unit ())))
+  node l r = Fix (Sum (Class04.Right (Pair (Rec l, Rec r))))
+
+  -- 例
+  tree1 = empty
+  tree2 = node tree1 empty
+  tree3 = node tree2 (node empty tree2)
+  tree4 = node tree2 (node tree3 empty)
+
+  countEmpty :: FixT -> Int
+  countEmpty = fold tree phi where
+    phi d = case d of
+      Sum (Class04.Left (Unit ())) -> 1
+      Sum (Class04.Right (Pair (Rec l, Rec r))) -> l + r
+
+  size :: FixT -> Int
+  size = fold tree phi where
+    phi d = case d of
+      Sum (Class04.Left (Unit ())) -> 0
+      Sum (Class04.Right (Pair (Rec l, Rec r))) -> l + r + 1
+  
