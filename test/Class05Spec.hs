@@ -71,7 +71,7 @@ spec = do
     it "tree7 has 5 node" $
       size tree7 `shouldBe` 6
 
-  describe "Question6 test sumTree" $ do
+  describe "Question6. test sumTree" $ do
     it "the sum of tree1 is 0" $
       sumTree tree1 `shouldBe` 0
     it "the sum of tree2 is 1" $
@@ -80,3 +80,11 @@ spec = do
       sumTree tree3 `shouldBe` 4
     it "the sum of tree4 is 1" $
       sumTree tree4 `shouldBe` 8
+
+  describe "Question7. test sumListTree" $ do
+    it "the sum of tree5 is 1" $
+      sumListTree tree5 `shouldBe` 1
+    it "the sum of tree6 is 6" $
+      sumListTree tree6 `shouldBe` 6
+    it "the sum of tree5 is 13" $
+      sumListTree tree7 `shouldBe` 13

@@ -132,3 +132,12 @@ module Class05 where
       sumF d = case d of
         Sum (Class05.Left (Unit ())) -> 0
         Sum (Class05.Right (Pair (Rec l, Pair (Par n, Rec r)))) -> l + r + Class05.length n
+
+  -- 問7
+  sumListTree :: FixT (FixT (FixT p)) -> Int
+  sumListTree = fold tree sumF
+    where
+      sumF :: TypeF Int (FixT (FixT p)) -> Int
+      sumF d = case d of
+        Sum (Class05.Left (Unit ())) -> 0
+        Sum (Class05.Right (Pair (Rec l, Pair (Par n, Rec r)))) -> l + r + sumList n
