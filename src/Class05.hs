@@ -84,7 +84,7 @@ module Class05 where
         Sum (Class05.Left (Unit ())) -> 0
         Sum (Class05.Right (Pair (Par n, Rec l))) -> Class05.length n + l
 
-  --  　-----------------------------------------------------------
+  -- 木 (ここから課題) -----------------------------------------------------------
   tree :: CodeT
   tree = Plus (U, Times (I, Times (P, I)))
 
